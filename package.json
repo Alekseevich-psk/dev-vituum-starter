@@ -1,0 +1,26 @@
+{
+    "name": "@example/vanilla",
+    "version": "0.0.1",
+    "type": "module",
+    "private": true,
+    "scripts": {
+        "dev": "vite dev",
+        "build": "vite build",
+        "preview": "vite preview",
+        "ttfToWoff": "node tasks/convert-fonts.js",
+        "fontsInStyle": "node tasks/fonts-in-style.js"
+    },
+    "devDependencies": {
+        "sass": "^1.84.0",
+        "terser": "^5.38.1",
+        "vituum": "^1.1.1"
+    },
+    "dependencies": {
+        "@vitejs/plugin-vue": "^5.2.1",
+        "@vituum/vite-plugin-pug": "^1.1.0",
+        "ttf2woff": "^3.0.0",
+        "ttf2woff2": "^6.0.1",
+        "website-scraper": "^5.3.1",
+        "yargs": "^17.7.2"
+    }
+}
