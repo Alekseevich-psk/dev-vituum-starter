@@ -8,7 +8,7 @@
   <a href="https://nodejs.org/en/about/releases/"><img src="https://img.shields.io/node/v/vituum.svg" alt="node compatility"></a>
 </p>
 
-# ⚡⚙️ Vituum
+# ⚡⚙️ Vituum starter
 
 Fast Prototyping with Template Engines in Vite
 
