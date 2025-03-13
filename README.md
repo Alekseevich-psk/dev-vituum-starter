@@ -30,3 +30,4 @@ Learn more about **Vituum** on [Features](https://vituum.dev/guide/features.html
 - pnpm run dev
 - pnpm run build
 ```
+## ⚠️ Сборка собрана на версии node.js - 23.0.0
