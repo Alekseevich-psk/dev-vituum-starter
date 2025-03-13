@@ -26,5 +26,7 @@ Learn more about **Vituum** on [Features](https://vituum.dev/guide/features.html
 
 ```sh
 - git clone https://github.com/Alekseevich-psk/dev-vituum-starter.git
-- npm i 
+- pnpm i 
+- pnpm run dev
+- pnpm run build
 ```
