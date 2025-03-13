@@ -1,0 +1,29 @@
+@use "./../base" as *;
+
+.input {
+    display: block;
+    width: 100%;
+    padding: 24px;
+    border-radius: 50px;
+    border: 1px solid #dfdfdf;
+    transition: $transition;
+    color: $active;
+    line-height: 1;
+
+    @include forMobile {
+        padding: 20px 24px;
+    }
+
+    &:hover {
+        border-color: $active;
+    }
+
+    &:focus {
+        border-color: $active;
+    }
+
+    &.error {
+        border-color: $err;
+        color: $err;
+    }
+}

@@ -1,0 +1,12 @@
+@mixin pFixed($img, $opacity: 0.9) {
+    .fixed-image {
+        position: fixed;
+        z-index: 9999;
+        top: -20px;
+        left: -90px;
+        opacity: $opacity;
+        width: 98%;
+        height: calc(100% + 40px);
+        background: url($img) no-repeat center / 100%;
+    }
+}

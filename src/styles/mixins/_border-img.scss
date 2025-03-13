@@ -1,0 +1,36 @@
+@use "./media" as *;
+
+@mixin border($color) {
+    &::before,
+    &::after {
+        position: absolute;
+        display: block;
+        content: "";
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: $color;
+        mask-size: auto 100%;
+        mask-repeat: no-repeat;
+    }
+
+    &::before {
+        left: 0;
+        mask-position: left top;
+        mask-image: url("/svg/el-border-left.svg");
+
+        @include forTablet {
+            mask-image: url("/svg/el-border-left-mobile.svg");
+        }
+    }
+
+    &::after {
+        right: 0;
+        mask-position: right top;
+        mask-image: url("/svg/el-border-right.svg");
+
+        @include forTablet {
+            mask-image: url("/svg/el-border-right-mobile.svg");
+        }
+    }
+}

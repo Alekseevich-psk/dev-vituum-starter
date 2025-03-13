@@ -1,0 +1,9 @@
+@use "~/styles/base" as *;
+
+.popup {
+    display: none;
+
+    &.fancybox__content {
+    }
+    
+}

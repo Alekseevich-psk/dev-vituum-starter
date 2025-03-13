@@ -1,0 +1,67 @@
+@use './../variables' as *;
+
+@mixin forMobile {
+    @media (max-width: $mobile) {
+        @content;
+    }
+}
+
+@mixin aboveMobile {
+    @media (min-width: $aboveMobile) {
+        @content;
+    }
+}
+
+@mixin forTablet {
+    @media (max-width: $tablet) {
+        @content;
+    }
+}
+
+@mixin aboveTablet {
+    @media (min-width: $aboveTable) {
+        @content;
+    }
+}
+
+@mixin inTablet {
+    @media (min-width: $aboveMobile) and (max-width: $tablet) {
+        @content;
+    }
+}
+
+@mixin forSmDesktop {
+    @media (max-width: $smDesktop) {
+        @content;
+    }
+}
+
+@mixin aboveSmDesktop {
+    @media (min-width: $aboveSmDesktop) {
+        @content;
+    }
+}
+
+@mixin inSmDesktop {
+    @media (min-width: $aboveTable) and (max-width: $smDesktop) {
+        @content;
+    }
+}
+
+@mixin forDesktop {
+    @media (max-width: $mDesktop) {
+        @content;
+    }
+}
+
+@mixin inDesktop {
+    @media (min-width: $aboveSmDesktop) and (max-width: $mDesktop) {
+        @content;
+    }
+}
+
+@mixin forLarge {
+    @media (min-width: $aboveHD) {
+        @content;
+    }
+}

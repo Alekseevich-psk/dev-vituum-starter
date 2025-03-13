@@ -1,0 +1,17 @@
+@use "./../base" as *;
+
+.sl-arrows {
+
+    &__arrow {
+        position: relative;
+
+        &--prev {
+        }
+        
+        &--next {
+        }
+
+        &.swiper-button-disabled {
+        }
+    }
+}

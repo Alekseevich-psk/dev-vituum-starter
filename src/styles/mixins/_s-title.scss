@@ -1,0 +1,13 @@
+@use "./media" as *;
+
+@mixin sTitle() {
+    margin-bottom: 54px;
+
+    @include forTablet {
+        margin-bottom: 42px;
+    }
+
+    @include forMobile {
+        margin-bottom: 28px;
+    }
+}

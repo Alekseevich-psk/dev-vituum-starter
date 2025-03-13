@@ -1,1 +1,13 @@
-@use './fonts';
+@forward "/node_modules/@fancyapps/ui/dist/fancybox/fancybox";
+@forward "/node_modules/swiper/swiper-bundle";
+
+@forward "./root";
+@forward "./main/reset";
+@forward "./main/setting";
+
+@forward "./fonts";
+// @forward "./common/s-title";
+// @forward "./common/animate";
+// @forward "./common/btn";
+// @forward "./common/sl-arrows";
+// @forward "./common/input";

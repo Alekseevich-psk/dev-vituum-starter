@@ -1,0 +1,15 @@
+form.s-form__form(action="")
+    .s-form__body 
+        .s-form__item.s-form__item--hidden 
+            input(type="text" name="your-name" class="s-form__input input" placeholder="Ваше имя мистер бот")
+        .s-form__item 
+            input(type="text" name="name" class="s-form__input input" placeholder="Ваше имя") 
+        .s-form__item 
+            input(type="text" name="phone" class="s-form__input input" placeholder="Номер телефона") 
+        .s-form__item 
+            input(type="submit" value="Отправить заявку").s-form__btn.btn.btn--bg 
+        .s-form__item 
+            .s-form__cop 
+                | Нажимая на кнопку, я соглашаюсь на обработку персональных данных,
+                a(href="") с политикой конфиденциальности
+                | ознакомлен

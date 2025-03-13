@@ -1,0 +1,35 @@
+@use "~/styles/base" as *;
+
+.btn-top {
+    display: none;
+    cursor: pointer;
+    z-index: 5;
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+    width: 38px;
+    height: 38px;
+
+    @media (max-width: 768px) {
+        bottom: 10%;
+    }
+
+    &.show {
+        display: block;
+    }
+
+    &__element {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        opacity: 0.7;
+        transition: 1s;
+        transform: rotate(90deg);
+        background-color: $black;
+        mask: url("/svg/ico-arrow-btn.svg") no-repeat center / contain;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+}

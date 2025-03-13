@@ -1,16 +1,21 @@
 import { defineConfig } from "vite";
 import vituum from "vituum";
 import pug from "@vituum/vite-plugin-pug";
+import path from "path";
+import config from "./app-config";
+import postcss from '@vituum/vite-plugin-postcss';
 
 export default defineConfig(({ command, mode, isSsrBuild, isPreview }) => {
-
     const buildOptions = {
         minify: "terser",
         terserOptions: {
-            format: {
-                beautify: true,
-                comments: true,
+            keep_fnames: true,
+            keep_classnames: true,
+            compress: {
+                keep_classnames: true,
+                keep_fnames: true,
             },
+            mangle: true,
         },
         rollupOptions: {
             output: {
@@ -21,7 +26,9 @@ export default defineConfig(({ command, mode, isSsrBuild, isPreview }) => {
     };
 
     const plugins = [
-        vituum(),
+        vituum({
+            input: ["./src/styles/styles.scss", "./src/scripts/scripts.ts"],
+        }),
         pug({
             root: "./src",
             options: {
@@ -31,9 +38,36 @@ export default defineConfig(({ command, mode, isSsrBuild, isPreview }) => {
                 },
             },
         }),
+        postcss({
+            autoprefixer: {
+                overrideBrowserslist: ['last 6 versions', 'Android >= 4']
+            }
+        })
     ];
 
     return {
+        css: {
+            preprocessorOptions: {
+                scss: {
+                    sourceMap: true,
+                },
+            },
+        },
+        resolve: {
+            alias: {
+                ".pug": false,
+                "~": path.resolve(__dirname, "src"),
+                sections: path.resolve(__dirname, config.sections),
+            },
+            extensions: [".ts", ".tsx", ".js", ".jsx", ".mjs"],
+        },
+        server: {
+            watch: {
+                additionalPaths: (watcher) => {
+                    watcher.add("src/**");
+                },
+            },
+        },
         plugins: plugins,
         build: buildOptions,
     };

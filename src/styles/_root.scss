@@ -1,0 +1,9 @@
+@use "./base" as *;
+
+:root {
+    --br: 16px;
+
+    @include forSmDesktop {
+        --br: 12px;
+    }
+}

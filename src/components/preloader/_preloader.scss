@@ -1,0 +1,49 @@
+@use "~/styles/base" as *;
+
+.preloader {
+    display: block;
+    position: fixed;
+    visibility: visible;
+    height: 100%;
+    width: 100%;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    opacity: 1;
+
+    .preloader__element {
+        display: block;
+    }
+
+    &.hide {
+        height: 0;
+        width: 0;
+        visibility: hidden;
+        transition: $transition;
+    }
+
+    &__overlay {
+        width: 100%;
+        height: 100%;
+        background-color: $white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__element {
+        transition: $transition;
+        display: none;
+
+        img {
+            width: 200px;
+            height: 200px;
+            object-fit: contain;
+
+            @media (max-width: 768px) {
+                width: 220px;
+                height: 220px;
+            }
+        }
+    }
+}

@@ -1,0 +1,11 @@
+@mixin img($fit: cover, $pos: relative) {
+    position: $pos;
+    width: 100%;
+    height: 100%;
+    object-fit: $fit;
+
+    @if ($pos == absolute) {
+        top: 0;
+        left: 0;
+    }
+}

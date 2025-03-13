@@ -1,0 +1,171 @@
+@use "./../base" as *;
+
+.btn {
+    cursor: pointer;
+    user-select: none;
+    display: inline-block;
+    background-color: transparent;
+    border-radius: 50px;
+    transition: $transition;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 130%;
+    padding: 20px 48px;
+
+    @include forTablet {
+        font-weight: 400;
+        font-size: 14px;
+        padding: 16px 40px;
+        line-height: 140%;
+    }
+
+    &--order {
+        border: 1px solid $active;
+        color: $active;
+        font-weight: 500;
+
+        &:hover {
+            background-color: $active;
+            color: $white;
+        }
+    }
+
+    &--bg {
+        color: $white;
+        background-color: $active;
+
+        &:hover {
+            background-color: $white;
+            color: $active;
+        }
+    }
+
+    &--no-bg {
+        border: 1px solid $subActive;
+        color: $subActive;
+        font-weight: 500;
+
+        &:hover {
+            background-color: $subActive;
+            color: $white;
+        }
+    }
+
+    &--more {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 133%;
+        text-decoration-skip-ink: none;
+        text-decoration: underline;
+        color: $subActive;
+
+        &:hover {
+            color: $active;
+        }
+    }
+
+    &--white {
+        border: 1px solid $white;
+        color: $white;
+
+        &:hover {
+            background-color: $white;
+            color: $active;
+        }
+    }
+
+    &--select-city {
+        position: relative;
+        padding: 18px 28px;
+        padding-right: 48px;
+        line-height: 1;
+        color: $white;
+        background-color: $active;
+
+        &:hover {
+            background-color: $subActive;
+        }
+
+        &::after {
+            position: absolute;
+            display: block;
+            content: "";
+            top: 50%;
+            transform: translateY(-50%);
+            right: 16px;
+            width: 24px;
+            height: 24px;
+            background: url('/svg/ico-target.svg') no-repeat center / contain;
+        }
+    }
+
+    &--auto-get-city {
+        position: relative;
+        padding: 18px 28px;
+        padding-right: 48px;
+        line-height: 1;
+        color: $active;
+        border: 1px solid $active;
+
+        @include forTablet {
+            padding: 14px 24px;
+            padding-right: 48px;
+        }
+
+        &:hover {
+            color: $white;
+            background-color: $active;
+
+            &::after {
+                background-color: $white;
+            }
+        }
+
+        &::after {
+            position: absolute;
+            display: block;
+            transition: $transition;
+            content: "";
+            top: 50%;
+            transform: translateY(-50%);
+            right: 16px;
+            width: 24px;
+            height: 24px;
+            background-color: $active;
+            mask: url('/svg/ico-target.svg') no-repeat center / contain;
+        }
+    }
+
+    &--close {
+        position: relative;
+        display: block;
+        width: 56px;
+        height: 56px;
+        background-color: $subActive;
+        padding: 0;
+        
+        @include forTablet {
+            width: 46px;
+            height: 46px;
+        }
+
+        @include forMobile {
+            width: 38px;
+            height: 38px;
+        }
+
+        &::after {
+            position: absolute;
+            display: block;
+            z-index: 1;
+            content: "";
+            top: 50%;
+            left: 50%;
+            width: 24px;
+            height: 24px;
+            transform: translate(-50%, -50%);
+            mask: url('/svg/ico-close.svg') no-repeat center / contain;
+            background-color: $white !important;
+        }
+    }
+}
