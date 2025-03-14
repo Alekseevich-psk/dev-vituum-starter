@@ -27,13 +27,11 @@ const createFiles = (path, nameFile, modeJs = null) => {
 
         if (exists) {
             arrayTypeFiles.forEach((type) => {
-                const dir = `${path}/${file}/${
-                    type === "scss" ? "_" : ""
-                }${file}.${type}`;
+                const dir = `${path}/${file}/${type === "scss" ? "_" : ""}${file}.${type}`;
                 let fileContent = "";
 
                 if (type === "scss") {
-                    fileContent = `@use "~/styles/base" as *; .${file} {}`;
+                    fileContent = `@use "~/styles/base" as *; .${file.replace(/(?<!^)[A-Z]/g, m => "-" + m).toLowerCase()} {}`;
                 }
 
                 fs.readFile(dir, "utf8", (error, data) => {
