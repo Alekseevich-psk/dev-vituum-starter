@@ -8,21 +8,16 @@
   <a href="https://nodejs.org/en/about/releases/"><img src="https://img.shields.io/node/v/vituum.svg" alt="node compatility"></a>
 </p>
 
-# ⚡⚙️ Vituum starter
-
-Fast Prototyping with Template Engines in Vite
+# ⚡⚙️ Vituum
 
 - ⚡ Vite Plugins
 - 🚀️ Fast prototyping
 - 💡 Template Engines
 - ✉️ Email Templates
 
-Small and fast static site generator for Vite.<br>
-It's a mix of words **Vite** _(French word for "quick")_ and **Tuum** _(Estonian word for "core")_.<br>
+Small and fast static site generator for Vite
 
-Learn more about **Vituum** on [Features](https://vituum.dev/guide/features.html) page.
-
-## 🪄 Get started
+## 🪄 Запуск и работа
 
 ```sh
 - git clone https://github.com/Alekseevich-psk/dev-vituum-starter.git
@@ -30,4 +25,22 @@ Learn more about **Vituum** on [Features](https://vituum.dev/guide/features.html
 - pnpm run dev
 - pnpm run build
 ```
+
+## 🚩 Быстрое подключение шрифтов
+
+-   Шрифты формата .ttf закидываем по адресу `"public/fonts/ttf/"`
+-   Запускаем конвертацию в формат .woff(.woff2) `pnpm run ttfToWoff`
+-   Подключаем шрифты в mixin scss `"public/styles/fonts.scss"` командой `pnpm run fontsInStyle`
+
+## ❗️ WGET
+
+-   Сверх простой асинхронный поиск удаленных файлов по протоколам http или https, вдохновленный wget js 
+```js
+    node tasks/wget url
+```
+
+## :point_right: Нюансы
+
+-   Данную сборку использую для личных проектов, могут присутствовать наработки под быстрый старт проекта или тестовые модификации
+
 ## ⚠️ Сборка собрана на версии node.js - 23.0.0
