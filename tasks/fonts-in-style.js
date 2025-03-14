@@ -5,7 +5,7 @@ import path from "path";
 
 import appConfig from "./../app-config.js";
 
-function cb() {}
+function cb() { }
 
 function getStyleFont(fontName) {
     if (fontName.toLowerCase().indexOf("italic") > 0) return "Italic";
@@ -66,14 +66,14 @@ function includeFont(fontName) {
     fs.appendFile(
         appConfig.pathFonts.fileStyle,
         '@include font("' +
-            nameArray[0] +
-            '", "' +
-            fontName +
-            '", "' +
-            getWeightFont(fontName) +
-            '", "' +
-            getStyleFont(fontName) +
-            '");\r\n',
+        nameArray[0] +
+        '", "' +
+        fontName +
+        '", "' +
+        getWeightFont(fontName) +
+        '", "' +
+        getStyleFont(fontName) +
+        '");\r\n',
         cb
     );
 }
@@ -84,6 +84,12 @@ const fontsInStyle = async () => {
     });
 
     fs.readdir(appConfig.pathFonts.woff, (err, files) => {
+        fs.appendFile(
+            appConfig.pathFonts.fileStyle,
+            '@use "./mixins/fonts" as *; ',
+            cb
+        );
+
         files.forEach((file) => {
             if (path.extname(file).toLowerCase() === ".woff") {
                 includeFont(file.split(".")?.[0]);
