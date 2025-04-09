@@ -6,6 +6,21 @@ import config from "./app-config";
 import postcss from '@vituum/vite-plugin-postcss';
 
 export default defineConfig(({ command, mode, isSsrBuild, isPreview }) => {
+
+    const replaceHTML = () => {
+        if (mode === 'production' && !isPreview) {
+            return {
+                name: "replace-html",
+                transformIndexHtml(html) {
+                    html = html.replaceAll(`src="../../`, `src="./`);
+                    html = html.replaceAll(`href="../../`, `href="./`);
+                    html = html.replaceAll(`rel="stylesheet" crossorigin`, `rel="stylesheet"`);
+                    return html;
+                }
+            };
+        }
+    };
+
     const buildOptions = {
         minify: "terser",
         terserOptions: {
@@ -42,7 +57,8 @@ export default defineConfig(({ command, mode, isSsrBuild, isPreview }) => {
             autoprefixer: {
                 overrideBrowserslist: ['last 6 versions', 'Android >= 4']
             }
-        })
+        }),
+        replaceHTML()
     ];
 
     return {
@@ -68,6 +84,7 @@ export default defineConfig(({ command, mode, isSsrBuild, isPreview }) => {
                 },
             },
         },
+        base: './',
         plugins: plugins,
         build: buildOptions,
     };
