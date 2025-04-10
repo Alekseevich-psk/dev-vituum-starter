@@ -14,6 +14,7 @@ export default defineConfig(({ command, mode, isSsrBuild, isPreview }) => {
                 transformIndexHtml(html) {
                     html = html.replaceAll(`src="../../`, `src="./`);
                     html = html.replaceAll(`href="../../`, `href="./`);
+                    html = html.replaceAll(`type="module" crossorigin`, `defer`);
                     html = html.replaceAll(`rel="stylesheet" crossorigin`, `rel="stylesheet"`);
                     return html;
                 }
@@ -22,6 +23,9 @@ export default defineConfig(({ command, mode, isSsrBuild, isPreview }) => {
     };
 
     const buildOptions = {
+        modulePreload: {
+            polyfill: false
+        },
         minify: "terser",
         terserOptions: {
             keep_fnames: true,

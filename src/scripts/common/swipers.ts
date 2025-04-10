@@ -1,4 +1,6 @@
-import Swiper from "swiper";
+import {Swiper as SwiperModule} from "swiper";
+const Swiper = ((window as any).Swiper = SwiperModule);
+
 import { Pagination, Navigation, Autoplay } from "swiper/modules";
 
 (() => {
